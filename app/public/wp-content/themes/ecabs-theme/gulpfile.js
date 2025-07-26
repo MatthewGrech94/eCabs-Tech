@@ -8,8 +8,8 @@ const uglify = require('gulp-uglify');
 
 const paths = {
   styles: {
-    src: 'src/scss/style.scss',   // your scss source
-    dest: './'                   // destination, root because WordPress expects style.css here
+    src: 'src/scss/style.scss',
+    dest: './'
   },
   scripts: {
     src: 'src/js/**/*.js',
@@ -23,7 +23,7 @@ function styles() {
   return gulp.src(paths.styles.src)
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([ autoprefixer() ]))
-    .pipe(cleanCSS())
+    // .pipe(cleanCSS())
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
 }
@@ -39,7 +39,7 @@ function scripts() {
 // Static server + watching scss/php/js files
 function serve() {
   browserSync.init({
-    proxy: "http://ecabs.local/", // Change to your local WP URL
+    proxy: "http://ecabs.local/", // Change to local WP URL
     notify: false
   });
 

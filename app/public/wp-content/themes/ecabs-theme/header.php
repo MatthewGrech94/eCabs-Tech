@@ -20,10 +20,10 @@
                 'container_class'=> 'main-nav'
             ));
         ?>
-        <button class="button-default cta-contact">
+        <a class="button-default cta-contact" href="/contact-page/">
             <span>Let's Talk</span>
             <span class="button-icon">+</span>
-        </button>
+        </a>
     </div>
 
 

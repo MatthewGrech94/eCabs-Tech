@@ -1083,6 +1083,10 @@ header.main-header {
     height: 96px;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
 
 
     &::before, &::after {
@@ -1248,5 +1252,44 @@ header.main-header {
 
     .feature-card-img-wrap {
 
+    }
+}
+
+.cta-card {
+    border-radius: $border-radius;
+    color: $color-white;
+    position: relative;
+    overflow: hidden;
+    padding: 100px;
+
+    &::before {
+        content: '';
+        background-image: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .cta-card-details {
+        position: relative;
+        z-index: 1;
+
+        .subtitle {
+            color: $color-yellow;
+            margin-bottom: 24px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    
+        .title {
+            color: $color-white;
+            margin-bottom: 24px;
+        }
+    
+        .desc { 
+            margin-bottom: 24px;
+        }
     }
 }

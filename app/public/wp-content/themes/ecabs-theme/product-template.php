@@ -26,7 +26,7 @@ $allowed_tags = array(
 
 <div class="product-template">
 
-  <div class="fold-default">
+  <div class="fold-default hero-fold">
     <div class="wrapper lg padding-bottom">
       <div class="product-hero-card">
           <div class="card-title-wrap col-md-3">
@@ -67,7 +67,9 @@ $allowed_tags = array(
         </div>
       </div>
       <div class="feature-card-img-wrap row center-xs col-md-6">
-        <img src="" alt="">
+        <?php if($product1['image']): ?>
+        <img src="<?php echo sanitize_text_field($product1['image']['url']) ?>" alt="<?php echo sanitize_text_field($product1['image']['alt']) ?>" class="card-img">
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -76,7 +78,9 @@ $allowed_tags = array(
     <div class="wrapper padding-bottom">
       <div class="feature-card">
       <div class="feature-card-img-wrap row center-xs col-md-6">
-        <img src="" alt="">
+        <?php if($product2['image']): ?>
+        <img src="<?php echo sanitize_text_field($product2['image']['url']) ?>" alt="<?php echo sanitize_text_field($product2['image']['alt']) ?>" class="card-img">
+        <?php endif; ?>
       </div>
         <div class="feature-card-details col-md-6">
           <div class="feature-card-icon">
@@ -110,23 +114,38 @@ $allowed_tags = array(
         </div>
       </div>
       <div class="feature-card-img-wrap row center-xs col-md-6">
-        <img src="" alt="">
+        <?php if($product3['image']): ?>
+        <img src="<?php echo sanitize_text_field($product3['image']['url']) ?>" alt="<?php echo sanitize_text_field($product3['image']['alt']) ?>" class="card-img">
+        <?php endif; ?>
       </div>
     </div>
   </div>
 
-  <!-- Optional: WordPress content -->
-  <div>
-    <?php
-    if (have_posts()) :
-      while (have_posts()) : the_post();
-        the_content();
-      endwhile;
-    endif;
-    ?>
+  <div class="fold-default contact-fold">
+    <div class="wrapper padding-bottom lg">
+      <div class="cta-card" style="background-image: url(<?php echo sanitize_text_field($cta_fold['background_image']['url']) ?>);">
+        <div class="cta-card-details col-md-6">
+          <h6 class="subtitle">
+            <?php echo sanitize_text_field(esc_html($cta_fold['overline_text'])) ?>
+          </h6>
+          <h2 class="title">
+            <?php echo sanitize_text_field(esc_html($cta_fold['title'])) ?>
+          </h2>
+          <div class="desc">
+            <p><?php echo sanitize_text_field(esc_html($cta_fold['description'])) ?></p>
+          </div>
+
+          <div class="button-wrap">
+            <a class="button-default" href="<?php echo sanitize_text_field(esc_html($cta_fold['cta']['cta_url'])) ?>">
+              <?php echo sanitize_text_field(esc_html($cta_fold['cta']['cta_text'])) ?>
+              <span class="button-icon">+</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <?php echo do_shortcode('[contact-form-7 id="e310d2b" title="Contact Form"]') ?>
 </div>
 
 <?php get_footer(); ?>

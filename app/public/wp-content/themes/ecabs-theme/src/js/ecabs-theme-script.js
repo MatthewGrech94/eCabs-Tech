@@ -1,4 +1,14 @@
 jQuery(document).ready(function($) {
+
+    $(window).on("scroll", function () {
+        if ($(this).scrollTop() > 0) {
+          $("header").addClass("scrolled");
+        } else {
+          $("header").removeClass("scrolled");
+        }
+      });
+
+    // Scroll to class event
     $('[scroll-to]').on('click', function(e) {
       e.preventDefault();
   
@@ -11,4 +21,4 @@ jQuery(document).ready(function($) {
         }, 600);
       }
     });
-  });
+});

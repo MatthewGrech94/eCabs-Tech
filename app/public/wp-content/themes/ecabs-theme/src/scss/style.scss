@@ -956,9 +956,23 @@ $color-grey-blue: #7A96A3;
 $color-yellow: #E0FF00;
 $color-white: #fff;
 $color-border:#e1e1e1;
+$color-error: #dc3232;
+$color-success: #46b450;
 
 // Brand Variables
 $border-radius: 10px;
+
+.font-awesome {
+  font-family: "Font Awesome 6 Free";
+  font-feature-settings: normal;
+  font-style: normal;
+  font-synthesis: none;
+  font-variant: normal;
+  line-height: 1;
+  text-align: center;
+  text-rendering: auto;
+  width: var(--fa-width, 1.25em);
+}
 
 // Fonts
 .font-roboto {
@@ -1073,7 +1087,139 @@ button, a {
             }
         }
     }
-} 
+}
+
+// Input Styles
+.wpcf7 {
+  height: 100%;
+  .wpcf7-form {
+    height: 100%;
+    .form-input {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      
+      br {
+        display: none;
+      }
+  
+      .label-text {
+        color: $color-black;
+      }
+  
+      .wpcf7-form-control-wrap {
+        width: 100%;
+  
+        input, textarea {
+          background-color: $color-white;
+          border-radius: $border-radius;
+          border: 2px solid rgb(164, 187, 203);
+          padding: 12px 10px;
+          height: 46px;
+          outline: none;
+          width: 100%;
+      
+          &:focus {
+            box-shadow: 0 0 3px rgb(164, 187, 203);
+          }
+      
+          &[type=text] {
+            
+          }
+    
+        }
+  
+        textarea {
+          resize: vertical;
+          height: 300px;
+        }
+  
+        // Validation
+        .wpcf7-not-valid-tip {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+  
+          &::before {
+            content: '\f057';
+            @extend .font-awesome;
+            font-size: 18px;
+          }
+        }
+      }
+    
+  
+      // Required
+      &:has(.wpcf7-validates-as-required) {
+  
+        .label-text {
+          &::after {
+          content: " *";
+          color: $color-error;  
+          }
+        }
+      }
+    }
+  
+    .wpcf7-submit {
+      background-color: $color-black;
+      color: $color-white;
+      border-radius: $border-radius;
+      padding: 0 24px;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      height: 48px;
+      line-height: 48px;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+      margin-top: 50px;
+  
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  
+    &.invalid {
+      .wpcf7-response-output {
+        color: $color-error;
+        border-radius: $border-radius;
+        background-color: rgba($color-error, 0.1);
+        border-width: 0;
+        padding: 10px 20px;
+        margin: 30px 0 0 0;
+        font-weight: 600;
+      }
+    }
+  
+    &.sent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      p {
+        display: none;
+      }
+  
+      .wpcf7-response-output {
+        border-width: 0;
+        padding: 10px 20px;
+        margin: 0;
+        font-weight: 600;
+      }
+  
+      &::before {
+        content: '\f058';
+        @extend .font-awesome;
+        font-weight: 900;
+        color: $color-success;
+        font-size: 31px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
 
 // Header Navigation
 header.main-header {
@@ -1170,6 +1316,7 @@ header.main-header {
     }
 }
 
+// Product Hero
 .product-hero-card {
     background: linear-gradient(100deg, #D1DEE4 75%, #A4BCCB 95%);
     border-radius: $border-radius;
@@ -1205,6 +1352,7 @@ header.main-header {
     }
 }
 
+// Feature Card
 .feature-card {
     border-radius: $border-radius;
     border: 1px solid $color-border;
@@ -1255,6 +1403,7 @@ header.main-header {
     }
 }
 
+// Call To Action
 .cta-card {
     border-radius: $border-radius;
     color: $color-white;
@@ -1292,4 +1441,32 @@ header.main-header {
             margin-bottom: 24px;
         }
     }
+}
+
+// Contact Page
+.contact-page {
+  .fold-default {
+    .wrapper {
+      .contact-card {
+        background-color: $color-grey-light;
+        border-radius: $border-radius;
+        display: flex;
+        padding: 120px 96px;
+
+        .content-wrap {
+          margin-right: auto;
+
+          h1 {
+            margin-bottom: 32px;
+          }
+
+          p {
+            margin-bottom: 14px;
+          }
+
+          strong { color: $color-black; }
+        }
+      }
+    }
+  }
 }

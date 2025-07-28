@@ -12,13 +12,19 @@ jQuery(document).ready(function($) {
     $('[scroll-to]').on('click', function(e) {
       e.preventDefault();
   
-      const targetClass = $(this).attr('scroll-to');
-      const $target = $('.' + targetClass).first();
-  
-      if ($target.length) {
-        $('html, body').animate({
-          scrollTop: $target.offset().top - 30
-        }, 600);
+      const target = $(this).attr('scroll-to');
+
+      if (target === 'top') {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+      } else {
+
+        const $target = $('.' + target).first();
+        
+        if ($target.length) {
+          $('html, body').animate({
+            scrollTop: $target.offset().top
+          }, 600);
+        }
       }
     });
 });

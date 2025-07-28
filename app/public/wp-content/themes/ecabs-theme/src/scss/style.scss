@@ -1047,10 +1047,8 @@ button, a {
         height: 50px;
         font-size: 16px;
         cursor: pointer;
-
-        span {
-            color: $color-white;
-        }
+        color: $color-white;
+        
 
         .button-icon {
             background-color: $color-yellow;
@@ -1314,6 +1312,72 @@ header.main-header {
             }
         }
     }
+}
+
+// Footer
+footer.main-footer {
+  padding-top: 50px;
+  .footer-wrap {
+    width: 100%;
+    max-width: 1320px;
+    padding: 0 50px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    .logo-wrap {
+      width: 118px;
+
+      svg {
+          width: 100%;
+          width: 118px;
+          fill: $color-black;
+          transition: fill 0.3s ease;
+      }
+    }
+
+    .footer-nav {
+      margin-left: auto;
+
+      .footer-title {
+        color: $color-black;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        font-size: 15px;
+        margin-right: 100px;
+        .menu-item {
+            color: $color-grey;
+            transition: color 0.3s ease;
+        }
+        
+      }
+    }
+
+    .copyright {
+      flex-basis: 100%;
+      border-top: 1px solid $color-border;
+      padding: 20px 0 50px;
+      position: relative;
+      margin-top: 50px;
+
+      .button-default.scroll-top {
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(100%, -50%);
+      }
+    }
+  }
 }
 
 // Product Hero

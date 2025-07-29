@@ -23,13 +23,23 @@ add_action( 'wp_enqueue_scripts', 'ecabs_theme_enqueues' );
 
 function product_template_enqueues() {
     if (is_page_template('product-template.php')) {
-        wp_enqueue_style('product-template-style', get_template_directory_uri() . '/css/custom-style.css');
+
+        wp_enqueue_style('product-template-style', get_template_directory_uri() . '/css/product-page.css');
 
         // Enqueue scripts
         wp_enqueue_script( 'product-template-script', get_template_directory_uri() . '/js/templates/product-template-script.js', array('jquery'), '1.0.0', true );
     }
 }
 add_action('wp_enqueue_scripts', 'product_template_enqueues');
+
+function contact_template_enqueues() {
+    if (is_page_template('contact-template.php')) {
+        echo get_template_directory_uri() . '/css/contact-page.css';
+        wp_enqueue_style('contact-template-style', get_template_directory_uri() . '/css/contact-page.css');       
+    }
+}
+add_action('wp_enqueue_scripts', 'contact_template_enqueues');
+
 
 function create_testimonials_custom_post_type() {
 

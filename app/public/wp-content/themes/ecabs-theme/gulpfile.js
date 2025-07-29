@@ -61,7 +61,7 @@ function thirdPartyStyles() {
 // Minify JS
 function scripts() {
   return gulp.src(paths.scripts.src)
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(browserSync.stream());
 }

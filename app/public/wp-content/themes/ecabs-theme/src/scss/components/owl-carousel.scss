@@ -1,4 +1,5 @@
 @use "../theme/branding.scss" as *;
+@use "../theme/mixins.scss" as *;
 
 .fold-default {
     overflow: hidden;
@@ -52,17 +53,25 @@
             .owl-prev {
                 &::after {
                     content: '';
-                    width: 100px;
+                    width: 0;
                     height: 1px;
                     background-color: $color-black;
+
+                    @include media-sm {
+                        width: 100px;
+                    }
                 }
             }
             .owl-next {
                 &::before {
                     content: '';
-                    width: 100px;
+                    width: 0;
                     height: 1px;
                     background-color: $color-black;
+
+                    @include media-sm {
+                        width: 100px;
+                    }
                 }
             }
         }

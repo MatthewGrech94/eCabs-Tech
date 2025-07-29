@@ -36,7 +36,6 @@ add_action('wp_enqueue_scripts', 'product_template_enqueues');
 
 function contact_template_enqueues() {
     if (is_page_template('contact-template.php')) {
-        echo get_template_directory_uri() . '/css/contact-page.css';
         wp_enqueue_style('contact-template-style', get_template_directory_uri() . '/css/contact-page.css');       
     }
 }

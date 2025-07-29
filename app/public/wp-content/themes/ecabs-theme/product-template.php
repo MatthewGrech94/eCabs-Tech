@@ -75,11 +75,11 @@ $testimonials_query = new WP_Query($args);
             <p><?php echo sanitize_text_field(esc_html($product1['description'])) ?></p>
           </div>
         </div>
-      </div>
-      <div class="feature-card-img-wrap row center-xs col-md-6">
-        <?php if($product1['image']): ?>
-        <img src="<?php echo sanitize_text_field($product1['image']['url']) ?>" alt="<?php echo sanitize_text_field($product1['image']['alt']) ?>" class="card-img">
-        <?php endif; ?>
+        <div class="feature-card-img-wrap row center-xs col-md-6">
+          <?php if($product1['image']): ?>
+          <img src="<?php echo sanitize_text_field($product1['image']['url']) ?>" alt="<?php echo sanitize_text_field($product1['image']['alt']) ?>" class="card-img">
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>
@@ -87,11 +87,11 @@ $testimonials_query = new WP_Query($args);
   <div class="fold-default">
     <div class="wrapper padding-bottom">
       <div class="feature-card">
-      <div class="feature-card-img-wrap row center-xs col-md-6">
-        <?php if($product2['image']): ?>
-        <img src="<?php echo sanitize_text_field($product2['image']['url']) ?>" alt="<?php echo sanitize_text_field($product2['image']['alt']) ?>" class="card-img">
-        <?php endif; ?>
-      </div>
+        <div class="feature-card-img-wrap row center-xs col-md-6">
+          <?php if($product2['image']): ?>
+            <img src="<?php echo sanitize_text_field($product2['image']['url']) ?>" alt="<?php echo sanitize_text_field($product2['image']['alt']) ?>" class="card-img">
+          <?php endif; ?>
+        </div>
         <div class="feature-card-details col-md-6">
           <div class="feature-card-icon">
             <?php echo wp_kses($product2['icon'], $allowed_tags) ?>
@@ -122,11 +122,11 @@ $testimonials_query = new WP_Query($args);
             <p><?php echo sanitize_text_field(esc_html($product3['description'])) ?></p>
           </div>
         </div>
-      </div>
-      <div class="feature-card-img-wrap row center-xs col-md-6">
-        <?php if($product3['image']): ?>
-        <img src="<?php echo sanitize_text_field($product3['image']['url']) ?>" alt="<?php echo sanitize_text_field($product3['image']['alt']) ?>" class="card-img">
-        <?php endif; ?>
+        <div class="feature-card-img-wrap row center-xs col-md-6">
+          <?php if($product3['image']): ?>
+          <img src="<?php echo sanitize_text_field($product3['image']['url']) ?>" alt="<?php echo sanitize_text_field($product3['image']['alt']) ?>" class="card-img">
+          <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>

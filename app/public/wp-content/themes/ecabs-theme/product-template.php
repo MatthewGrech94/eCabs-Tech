@@ -24,7 +24,7 @@ $allowed_tags = array(
 
 ?>
 
-<div class="product-template">
+<div class="product-page">
 
   <div class="fold-default hero-fold">
     <div class="wrapper lg padding-bottom">

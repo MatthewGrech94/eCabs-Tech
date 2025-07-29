@@ -14,6 +14,9 @@ wp-content/plugins/*
 wp-content/themes/*
 !wp-content/themes/ecabs-theme/
 
+wp-content/themes/ecabs-theme/css/
+wp-content/themes/ecabs-theme/js/
+
 conf/
 
 node_modules/

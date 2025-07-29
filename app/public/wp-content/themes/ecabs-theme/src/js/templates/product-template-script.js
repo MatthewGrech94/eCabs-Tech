@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
 
+    $('header').find('.burger-menu').on("click", function(){
+        $('header .burger-menu, header .main-nav').toggleClass('opened');
+    });
+
     $('.owl-carousel').on('initialized.owl.carousel', function(event) {
         setTimeout(() => {
             owlCarouselNavSpacing();
@@ -18,7 +22,6 @@ jQuery(document).ready(function($) {
             '<i class="fa-solid fa-chevron-right"></i>'
         ],
     });
-
 
     function owlCarouselNavSpacing() {
 

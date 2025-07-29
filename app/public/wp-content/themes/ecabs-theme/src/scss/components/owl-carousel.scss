@@ -2,7 +2,10 @@
 @use "../theme/mixins.scss" as *;
 
 .fold-default {
-    overflow: hidden;
+    &.overflow-hidden {
+        overflow: hidden;
+    }
+   
     .owl-carousel {
         .owl-stage-outer {
             overflow: visible;

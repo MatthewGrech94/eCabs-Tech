@@ -24,6 +24,11 @@
             <span>Let's Talk</span>
             <span class="button-icon">+</span>
         </a>
+
+        <div class="burger-menu">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
     </div>
 
 

@@ -1,5 +1,5 @@
 @use "../theme/branding.scss" as *;
-
+@use "../theme/mixins.scss" as *;
 
 // Header Navigation
 header.main-header {
@@ -57,19 +57,80 @@ header.main-header {
         .main-nav {
             margin-left: 100px;
 
+            @include media-max-md {
+                margin-left: 0;
+                position: fixed; 
+                top: 0;
+                bottom: 0;
+                right: 0;
+                transform: translateX(100%);
+                background-color: $color-white;
+                padding: 96px 0 0;
+                width: calc(100% - 75px);
+                transition: transform 0.3s ease;
+
+                ul.header-menu {
+                    flex-direction: column;
+                    padding: 0;
+                    gap: 0;
+
+                    .menu-item {
+                        color: $color-black !important;
+                        border-bottom: 1px solid $color-border;
+                        padding: 15px 40px;
+                    }
+                }
+
+                &.opened {
+                    transform: translateX(0%);
+                }
+            }
+
             .header-menu {
                 display: flex;
                 gap: 32px;
                 list-style: none;
+                position: relative;
                 .menu-item {
                     color: $color-white;
                     transition: color 0.3s ease;
+                    font-weight: 600;
                 }
             }
         }
 
         .cta-contact {
             margin-left: auto;
+            position: relative;
+            z-index: 10;
+            margin-right: 20px;
+            flex-shrink: 0;
+
+            @include media-md {
+                margin-right: 60px;
+            }
+        }
+
+        .burger-menu {
+            position: relative;
+            z-index: 10;
+            color: $color-white;
+            font-size: 27px;
+
+            .fa-xmark {
+                display: none;
+            }
+
+            &.opened {
+                color: $color-black;
+
+                .fa-xmark {
+                    display: block;
+                }
+                .fa-bars {
+                    display: none;
+                }
+            }
         }
     }
 

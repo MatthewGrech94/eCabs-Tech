@@ -131,7 +131,7 @@ $testimonials_query = new WP_Query($args);
     </div>
   </div>
 
-  <div class="fold-default testimonials">
+  <div class="fold-default testimonials overflow-hidden">
     <div class="wrapper padding-bottom">
 
       <h2 class="fold-title">Testimonials</h2>

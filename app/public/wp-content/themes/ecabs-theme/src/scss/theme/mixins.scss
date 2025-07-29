@@ -22,3 +22,22 @@ $breakpoint-lg: 1400px;
         @content;
     }
 }
+
+@mixin media-max-sm {
+    @media (max-width: #{$breakpoint-sm}) {
+      @content;
+    }
+}
+  
+@mixin media-max-md {
+    @media (max-width: #{$breakpoint-md}) {
+      @content;
+    }
+}
+  
+
+@mixin media-max-lg {
+    @media (max-width: #{$breakpoint-lg}) {
+        @content;
+    }
+}

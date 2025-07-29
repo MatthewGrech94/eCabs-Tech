@@ -7,9 +7,13 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 
 const paths = {
-  styles: {
+  themeStyles: {
     src: 'src/scss/style.scss',
     dest: './'
+  },
+  pageStyles: {
+    src: 'src/scss/pages/*.scss',
+    dest: './css'
   },
   scripts: {
     src: 'src/js/**/*.js',
@@ -18,13 +22,22 @@ const paths = {
   php: './**/*.php'
 };
 
-// Compile SCSS into CSS & auto-inject into browsers
-function styles() {
-  return gulp.src(paths.styles.src)
+// Compile themeStyles into CSS & auto-inject into browsers
+function themeStyles() {
+  return gulp.src(paths.themeStyles.src)
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([ autoprefixer() ]))
-    // .pipe(cleanCSS())
-    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest(paths.themeStyles.dest))
+    .pipe(browserSync.stream());
+}
+
+function pageStyles() {
+  return gulp.src(paths.pageStyles.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest(paths.pageStyles.dest))
     .pipe(browserSync.stream());
 }
 
@@ -43,14 +56,16 @@ function serve() {
     notify: false
   });
 
-  gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.themeStyles.src, themeStyles);
+  gulp.watch(paths.pageStyles.src, pageStyles);
   gulp.watch(paths.scripts.src, scripts);
   gulp.watch(paths.php).on('change', browserSync.reload);
 }
 
-const build = gulp.series(gulp.parallel(styles, scripts), serve);
+const build = gulp.series(gulp.parallel(themeStyles, pageStyles, scripts), serve);
 
-exports.styles = styles;
+exports.themeStyles = themeStyles;
+exports.pageStyles = pageStyles;
 exports.scripts = scripts;
 exports.serve = serve;
 exports.default = build;

@@ -1,0 +1,54 @@
+@use "../theme/branding.scss" as *;
+
+// Button Styles
+button, a {
+    &.button-default { 
+        background-color: $color-black;
+        border-radius: 100vh;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        padding: 8px 8px 8px 24px;
+        border: 0;
+        height: 50px;
+        font-size: 16px;
+        cursor: pointer;
+        color: $color-white;
+        
+
+        .button-icon {
+            background-color: $color-yellow;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-black;
+            height: 34px;
+            width: 34px;
+            font-size: 35px;
+            transition: transform 0.4s ease;
+            font-weight: 300;
+        }
+
+        &.round {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        &.yellow {
+            background-color: $color-yellow;
+            color: $color-black;
+        }
+
+        &:hover {
+            .button-icon {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@use "../theme/branding.scss" as *;
+
+
+// Header Navigation
+header.main-header {
+    border-bottom: 1px solid $color-border;
+    position: relative;
+    background-color: $color-white;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+
+    &::before, &::after {
+        content: '';
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &::before {
+        background-image: url('https://ecabstech.com/wp-content/uploads/2024/09/shutterstock_2054366990-1.png');
+    }
+    &::after {
+        background-image: linear-gradient(180deg, rgb(0 0 0) 10%, rgba(0, 0, 0, 0.00) 100%);
+    }
+
+    .header-wrap {
+        width: 100%;
+        max-width: 1320px;
+        padding: 0 50px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        .logo-wrap {
+            width: 118px;
+
+            svg {
+                width: 100%;
+                width: 118px;
+                fill: $color-white;
+                transition: fill 0.3s ease;
+            }
+        }
+
+        .main-nav {
+            margin-left: 100px;
+
+            .header-menu {
+                display: flex;
+                gap: 32px;
+                list-style: none;
+                .menu-item {
+                    color: $color-white;
+                    transition: color 0.3s ease;
+                }
+            }
+        }
+
+        .cta-contact {
+            margin-left: auto;
+        }
+    }
+
+    &.scrolled {
+        background-color: $color-white;
+
+        &::before, &::after {
+            opacity: 0;
+        }
+
+        .logo-wrap {
+            svg {
+                fill: $color-black;
+            }
+        }
+
+        .main-nav {
+            .header-menu {
+                .menu-item {
+                    color: $color-black;
+                }
+            }
+        }
+    }
+}

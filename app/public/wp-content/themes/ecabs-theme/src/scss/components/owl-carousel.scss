@@ -1,0 +1,70 @@
+@use "../theme/branding.scss" as *;
+
+.fold-default {
+    overflow: hidden;
+    .owl-carousel {
+        .owl-stage-outer {
+            overflow: visible;
+        }
+        .owl-dots {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+    
+            .owl-dot {
+                width: 6px;
+                height: 6px;
+                background-color: rgba($color-black, 0.2);
+                border-radius: 50%;
+                box-sizing: content-box;
+    
+                &.active {
+                    border: 2px solid $color-black;
+                }
+            }
+        }
+        .owl-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(24px);
+            pointer-events: none;
+            margin: 0 auto;
+            .owl-prev, .owl-next {
+                display: flex;
+                align-items: center;
+                pointer-events: all;
+                i {
+                    background-color: $color-black;
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 50%;
+                    color: $color-white;
+                    font-size: 21px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+    
+            .owl-prev {
+                &::after {
+                    content: '';
+                    width: 100px;
+                    height: 1px;
+                    background-color: $color-black;
+                }
+            }
+            .owl-next {
+                &::before {
+                    content: '';
+                    width: 100px;
+                    height: 1px;
+                    background-color: $color-black;
+                }
+            }
+        }
+    }
+}

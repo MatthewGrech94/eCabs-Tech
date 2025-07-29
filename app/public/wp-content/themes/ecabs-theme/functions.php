@@ -24,9 +24,11 @@ add_action( 'wp_enqueue_scripts', 'ecabs_theme_enqueues' );
 function product_template_enqueues() {
     if (is_page_template('product-template.php')) {
 
+        wp_enqueue_style('owl-carousel-style', get_template_directory_uri() . '/css/third-party/owl.carousel.min.css');
         wp_enqueue_style('product-template-style', get_template_directory_uri() . '/css/product-page.css');
 
         // Enqueue scripts
+        wp_enqueue_script( 'owl-carousel-script', get_template_directory_uri() . '/js/third-party/owl.carousel.min.js', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'product-template-script', get_template_directory_uri() . '/js/templates/product-template-script.js', array('jquery'), '1.0.0', true );
     }
 }

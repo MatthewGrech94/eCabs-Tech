@@ -15,9 +15,17 @@ const paths = {
     src: 'src/scss/pages/*.scss',
     dest: './css'
   },
+  thirdPartyStyles: {
+    src: ['node_modules/owl.carousel/dist/assets/owl.carousel.min.css'],
+    dest: './css/third-party/'
+  },
   scripts: {
     src: 'src/js/**/*.js',
     dest: 'js/'
+  },
+  thirdPartyScripts: {
+    src: ['node_modules/owl.carousel/dist/owl.carousel.min.js'],
+    dest: 'js/third-party/'
   },
   php: './**/*.php'
 };
@@ -41,11 +49,27 @@ function pageStyles() {
     .pipe(browserSync.stream());
 }
 
-// Minify JS (optional)
+function thirdPartyStyles() {
+  return gulp.src(paths.thirdPartyStyles.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest(paths.thirdPartyStyles.dest))
+    .pipe(browserSync.stream());
+}
+
+// Minify JS
 function scripts() {
   return gulp.src(paths.scripts.src)
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest))
+    .pipe(browserSync.stream());
+}
+
+function thirdPartyScripts() {
+  return gulp.src(paths.thirdPartyScripts.src)
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.thirdPartyScripts.dest))
     .pipe(browserSync.stream());
 }
 
@@ -56,16 +80,20 @@ function serve() {
     notify: false
   });
 
-  gulp.watch(paths.themeStyles.src, themeStyles);
-  gulp.watch(paths.pageStyles.src, pageStyles);
+  gulp.watch(['src/scss/**/*.scss'], themeStyles);
+  gulp.watch(['src/scss/**/*.scss'], pageStyles);
+  gulp.watch(paths.thirdPartyStyles.src, thirdPartyStyles);
   gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.thirdPartyScripts.src, thirdPartyScripts);
   gulp.watch(paths.php).on('change', browserSync.reload);
 }
 
-const build = gulp.series(gulp.parallel(themeStyles, pageStyles, scripts), serve);
+const build = gulp.series(gulp.parallel(themeStyles, pageStyles, thirdPartyStyles, scripts, thirdPartyScripts), serve);
 
 exports.themeStyles = themeStyles;
 exports.pageStyles = pageStyles;
+exports.thirdPartyStyles = thirdPartyStyles;
 exports.scripts = scripts;
+exports.thirdPartyScripts = thirdPartyScripts;
 exports.serve = serve;
 exports.default = build;

@@ -1,5 +1,6 @@
 <?php
 
+// Register Menu
 function ecabs_register_menus() {
     register_nav_menus(array(
         'header-navigation' => __('Header Navigation', 'ecabs-theme'),
@@ -7,6 +8,7 @@ function ecabs_register_menus() {
 }
 add_action('after_setup_theme', 'ecabs_register_menus');
 
+// eCabs Theme
 function ecabs_theme_enqueues() {
 
     // Enqueue google font
@@ -21,19 +23,17 @@ function ecabs_theme_enqueues() {
 }
 add_action( 'wp_enqueue_scripts', 'ecabs_theme_enqueues' );
 
+// Product Template
 function product_template_enqueues() {
     if (is_page_template('product-template.php')) {
-
-        wp_enqueue_style('owl-carousel-style', get_template_directory_uri() . '/css/third-party/owl.carousel.min.css');
+        // Enqueue style & script
         wp_enqueue_style('product-template-style', get_template_directory_uri() . '/css/product-page.css');
-
-        // Enqueue scripts
-        wp_enqueue_script( 'owl-carousel-script', get_template_directory_uri() . '/js/third-party/owl.carousel.min.js', array('jquery'), '1.0.0', true );
         wp_enqueue_script( 'product-template-script', get_template_directory_uri() . '/js/templates/product-template-script.js', array('jquery'), '1.0.0', true );
     }
 }
 add_action('wp_enqueue_scripts', 'product_template_enqueues');
 
+// Contact Template
 function contact_template_enqueues() {
     if (is_page_template('contact-template.php')) {
         wp_enqueue_style('contact-template-style', get_template_directory_uri() . '/css/contact-page.css');       
@@ -41,7 +41,7 @@ function contact_template_enqueues() {
 }
 add_action('wp_enqueue_scripts', 'contact_template_enqueues');
 
-
+// Testimonials Custom Post Type
 function create_testimonials_custom_post_type() {
 
     $labels = array(
@@ -98,3 +98,25 @@ function create_testimonials_custom_post_type() {
     register_post_type('testimonials', $args);
 }
 add_action('init', 'create_testimonials_custom_post_type', 0);
+
+// Testimonials Carousel Shortcode
+function testimonials_carousel_shortcode() {
+
+    ob_start();
+
+    wp_enqueue_style('owl-carousel-style', get_template_directory_uri() . '/css/third-party/owl.carousel.min.css');
+    wp_enqueue_script( 'owl-carousel-script', get_template_directory_uri() . '/js/third-party/owl.carousel.min.js', array('jquery'), '1.0.0', true );
+
+    include locate_template('templates/testimonials-carousel-template.php');
+    
+    return ob_get_clean();
+}
+add_shortcode('testimonials-carousel', 'testimonials_carousel_shortcode');
+
+// Redirects
+add_action('template_redirect', function () {
+    if (is_front_page()) {
+        wp_redirect(home_url('/ecabs-premium-rides/'), 301);
+        exit;
+    }
+});

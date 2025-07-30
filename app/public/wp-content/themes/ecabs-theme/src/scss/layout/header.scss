@@ -122,6 +122,10 @@ header.main-header {
             color: $color-white;
             font-size: 27px;
 
+            @include media-md {
+                display: none;
+            }
+
             .fa-xmark {
                 display: none;
             }

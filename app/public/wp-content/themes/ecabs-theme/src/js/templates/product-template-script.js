@@ -1,9 +1,5 @@
 jQuery(document).ready(function($) {
 
-    $('header').find('.burger-menu').on("click", function(){
-        $('header .burger-menu, header .main-nav').toggleClass('opened');
-    });
-
     $('.owl-carousel').on('initialized.owl.carousel', function(event) {
         setTimeout(() => {
             owlCarouselNavSpacing();

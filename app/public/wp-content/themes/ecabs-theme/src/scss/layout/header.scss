@@ -37,12 +37,17 @@ header.main-header {
     .header-wrap {
         width: 100%;
         max-width: 1320px;
-        padding: 0 50px;
+        padding: 0 20px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         position: relative;
-        z-index: 1;
+        z-index: 2;
+
+        @include media-md {
+            padding: 0 50px;
+        }
+
         .logo-wrap {
             width: 118px;
 
@@ -153,6 +158,22 @@ header.main-header {
                     color: $color-black;
                 }
             }
+        }
+
+        .burger-menu {
+            color: $color-black;
+        }
+    }
+
+    &.opened {
+        .mobile-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
         }
     }
 }

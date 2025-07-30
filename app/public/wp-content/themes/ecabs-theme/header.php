@@ -31,7 +31,6 @@
         </div>
     </div>
 
-
-
+    <div class="mobile-overlay"></div>
 
 </header>

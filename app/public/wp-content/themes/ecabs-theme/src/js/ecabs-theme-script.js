@@ -1,5 +1,13 @@
 jQuery(document).ready(function($) {
 
+  $('header').find('.burger-menu').on("click", function(){
+    $('header .burger-menu, header .main-nav, header').toggleClass('opened');
+  });
+
+  $('.mobile-overlay').on("click", function(){
+    $('header .burger-menu, header .main-nav, header').toggleClass('opened');
+  });
+
     $(window).on("scroll", function () {
         if ($(this).scrollTop() > 0) {
           $("header").addClass("scrolled");
@@ -13,6 +21,7 @@ jQuery(document).ready(function($) {
       e.preventDefault();
   
       const target = $(this).attr('scroll-to');
+      const headerHeight = $('header.main-header').height();
 
       if (target === 'top') {
         $('html, body').animate({ scrollTop: 0 }, 600);
@@ -22,7 +31,7 @@ jQuery(document).ready(function($) {
         
         if ($target.length) {
           $('html, body').animate({
-            scrollTop: $target.offset().top
+            scrollTop: $target.offset().top - headerHeight
           }, 600);
         }
       }

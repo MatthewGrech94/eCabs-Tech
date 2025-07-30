@@ -1,5 +1,6 @@
 @use "./branding.scss" as *;
 @use "./fonts.scss" as *;
+@use "./mixins.scss" as *;
 
 // Base Styles
 body {
@@ -33,18 +34,25 @@ body {
     }
 
     .fold-default {
+        &.overflow-hidden {
+            overflow: hidden;
+        }
 
         .wrapper {
             max-width: 1216px;
             margin: 0 auto;
-            padding: 20px 0;   
+            padding: 20px;   
 
             &.lg {
                 max-width: 1400px;
             }
 
             &.padding-bottom {
-                padding-bottom: 120px;
+                padding-bottom: 60px;
+
+                @include media-md {
+                    padding-bottom: 120px;
+                }
             }
         }
     }

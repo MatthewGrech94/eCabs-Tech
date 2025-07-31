@@ -2,7 +2,7 @@
 
 $args = array(
     'post_type'      => 'testimonials',
-    'posts_per_page' => -1, // Use -1 to get all testimonials
+    'posts_per_page' => -1, 
     'post_status'    => 'publish',
     'orderby'        => 'date',
     'order'          => 'DESC'

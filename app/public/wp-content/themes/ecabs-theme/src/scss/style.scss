@@ -1,4 +1,5 @@
 // Basic Theme Styles
+@use "./theme/theme-info.scss" as *;
 @use "./theme/reset.scss" as *;
 @use "./theme/base.scss" as *;
 @use "./theme/branding.scss" as *;

@@ -1,3 +1,28 @@
+# eCabs Custom Theme
+
+## 📄 Website Basic Building Blocks
+This theme includes the basic building blocks for the eCabs website, such as the header, footer, and generic styles.
+
+## 📄 Custom Page Templates
+
+This theme includes two custom page templates for improved content control:
+
+### 1. **Product Page Template**
+
+- Utilizes **ACF** for dynamically populated product content.
+- Includes a **hardcoded shortcode** for a testimonials carousel (ensure that **eCabs Testimonials** plugin is installed and activated).
+- Testimonials are sourced from a **custom post type** (`testimonials`) created within the theme, allowing easy management from the WP dashboard.
+
+---
+
+### 2. **Contact Page Template**
+
+- Page content is editable via the WordPress page editor.
+- The **Contact Form 7 shortcode** is hardcoded into the PHP template to render the contact form.
+
+---
+
+
 # 🛠️ Gulp Workflow for eCabs WordPress Theme Development
 
 A streamlined Gulp setup to compile SCSS, minify JavaScript, and enable live reloading for WordPress theme development.
@@ -58,7 +83,7 @@ project-root/
 
 ## 📦 Gulp Tasks
 
-| Command                      | Description                                                   |
+| Command                     | Description                                                   |
 |-----------------------------|---------------------------------------------------------------|
 | `gulp`                      | Run all tasks and start development server with file watching |
 | `gulp.themeStyles`          | Compile `style.scss` to minified CSS                          |
@@ -95,25 +120,6 @@ Store Contact Form 7 submissions in the WordPress admin dashboard.
 🔗 [View on WordPress.org](https://wordpress.org/plugins/flamingo/)
 
 > 💡 You can install these plugins via **Plugins → Add New** in the WordPress admin panel or download them using the links above.
-
----
-
-## 📄 Custom Page Templates
-
-This theme includes two custom page templates for improved content control:
-
-### 1. **Product Page Template**
-
-- Utilizes **ACF** for dynamically populated product content.
-- Includes a **hardcoded shortcode** for a testimonials carousel.
-- Testimonials are sourced from a **custom post type** (`testimonials`) created within the theme, allowing easy management from the WP dashboard.
-
----
-
-### 2. **Contact Page Template**
-
-- Page content is editable via the WordPress page editor.
-- The **Contact Form 7 shortcode** is hardcoded into the PHP template to render the contact form.
 
 ---
 

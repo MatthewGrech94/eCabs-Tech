@@ -8,8 +8,10 @@ wp-content/*
  
 
 wp-content/plugins/*
-# !wp-content/plugins/my-directory-plugin/
+!wp-content/plugins/ecabs-testimonials-plugin/
 
+wp-content/plugins/ecabs-testimonials-plugin/css/
+wp-content/plugins/ecabs-testimonials-plugin/js/
 
 wp-content/themes/*
 !wp-content/themes/ecabs-theme/

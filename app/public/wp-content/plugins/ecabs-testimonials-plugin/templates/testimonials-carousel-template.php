@@ -20,6 +20,7 @@ $testimonials_query = new WP_Query($args);
   
         <?php 
           if ($testimonials_query->have_posts()) :
+            
             while ($testimonials_query->have_posts()) : $testimonials_query->the_post(); ?>
                 <div class="testimonial-card">
                     <div class="testimonial-content">

@@ -124,7 +124,11 @@ $allowed_tags = array(
     </div>
   </div>
 
-  <?php echo do_shortcode('[testimonials-carousel]'); ?>
+  <?php 
+   if(is_plugin_active( 'ecabs-testimonials-plugin/ecabs-testimonials-plugin.php' )): 
+      echo do_shortcode('[testimonials-carousel]'); 
+   endif;
+  ?>
 
   <div class="fold-default contact-fold">
     <div class="wrapper padding-bottom lg">

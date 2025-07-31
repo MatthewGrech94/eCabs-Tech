@@ -74,7 +74,8 @@ function testimonials_carousel_shortcode() {
 
     ob_start();
 
-    wp_enqueue_style('owl-carousel-style', plugin_dir_url(__FILE__) . '/css/third-party/owl.carousel.min.css');
+    wp_enqueue_style( 'owl-carousel-style', plugin_dir_url(__FILE__) . '/css/third-party/owl.carousel.min.css' );
+    wp_enqueue_style ('testimonials-style', plugin_dir_url(__FILE__) . '/css/testimonials.css' );
     wp_enqueue_script( 'owl-carousel-script', plugin_dir_url(__FILE__) . '/js/third-party/owl.carousel.min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'testimonials-script', plugin_dir_url(__FILE__) . '/js/testimonials.js', array('jquery'), '1.0.0', true );
 

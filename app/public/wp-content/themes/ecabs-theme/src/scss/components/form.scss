@@ -1,0 +1,134 @@
+@use "../theme/branding.scss" as *;
+@use "../theme/fonts.scss" as *;
+
+// Input Styles
+.wpcf7 {
+    height: 100%;
+    .wpcf7-form {
+      height: 100%;
+      .form-input {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        
+        br {
+          display: none;
+        }
+    
+        .label-text {
+          color: $color-black;
+        }
+    
+        .wpcf7-form-control-wrap {
+          width: 100%;
+    
+          input, textarea {
+            background-color: $color-white;
+            border-radius: $border-radius;
+            border: 2px solid rgb(164, 187, 203);
+            padding: 12px 10px;
+            height: 46px;
+            outline: none;
+            width: 100%;
+        
+            &:focus {
+              box-shadow: 0 0 3px rgb(164, 187, 203);
+            }
+        
+            &[type=text] {
+              
+            }
+      
+          }
+    
+          textarea {
+            resize: vertical;
+            height: 300px;
+          }
+    
+          // Validation
+          .wpcf7-not-valid-tip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+    
+            &::before {
+              content: '\f057';
+              @extend .font-awesome;
+              font-size: 18px;
+            }
+          }
+        }
+      
+    
+        // Required
+        &:has(.wpcf7-validates-as-required) {
+    
+          .label-text {
+            &::after {
+            content: " *";
+            color: $color-error;  
+            }
+          }
+        }
+      }
+    
+      .wpcf7-submit {
+        background-color: $color-black;
+        color: $color-white;
+        border-radius: $border-radius;
+        padding: 0 24px;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        height: 48px;
+        line-height: 48px;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+        margin-top: 50px;
+    
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    
+      &.invalid {
+        .wpcf7-response-output {
+          color: $color-error;
+          border-radius: $border-radius;
+          background-color: rgba($color-error, 0.1);
+          border-width: 0;
+          padding: 10px 20px;
+          margin: 30px 0 0 0;
+          font-weight: 600;
+        }
+      }
+    
+      &.sent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        p {
+          display: none;
+        }
+    
+        .wpcf7-response-output {
+          border-width: 0;
+          padding: 10px 20px;
+          margin: 0;
+          font-weight: 600;
+        }
+    
+        &::before {
+          content: '\f058';
+          @extend .font-awesome;
+          font-weight: 900;
+          color: $color-success;
+          font-size: 31px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }

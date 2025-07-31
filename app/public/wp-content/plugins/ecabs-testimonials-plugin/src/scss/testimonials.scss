@@ -1,0 +1,20 @@
+@use "../../../../themes/ecabs-theme/src/scss/theme/branding.scss" as *;
+
+// Testimonials
+.testimonials {
+
+    .fold-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .testimonial-card {
+        border: 1px solid $color-border;
+        padding: 30px;
+        border-radius: $border-radius;
+        
+        .testimonial-content {
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,178 @@
+@use "../theme/branding.scss" as *;
+@use "../theme/mixins.scss" as *;
+@use "../components/owl-carousel.scss" as *;
+
+.product-page {
+    padding-top: 40px;
+
+    // Product Hero
+    .product-hero-card {
+        background: linear-gradient(100deg, #D1DEE4 75%, #A4BCCB 95%);
+        border-radius: $border-radius;
+        padding: 30px 20px;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+
+        @include media-md {
+            flex-direction: row;
+        }
+    
+        .card-title-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .product-name {
+                color: $color-grey-blue;
+                margin-bottom: 24px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .card-header {}
+        }
+
+        .card-image-wrap {
+            img { margin: 0 auto; }
+        }
+    
+        .card-desc-wrap {
+            display: flex;
+            flex-direction: column;
+    
+            .card-desc, .spacer, .cta-wrap {
+                flex-basis: 33%;
+            }
+    
+            .cta-wrap {
+                display: flex;
+                align-items: flex-end;
+                margin-top: 30px;
+            }
+        }
+    }
+    
+    // Feature Card
+    .feature-card {
+        border-radius: $border-radius;
+        border: 1px solid $color-border;
+        padding: 30px 20px;
+        position: relative;
+        background-color: $color-white;
+        display: flex;
+        flex-direction: column;
+
+        @include media-sm {
+            flex-direction: row;
+        }
+        @include media-md {
+            padding: 64px 104px;
+        }
+        // Corner Shadow
+        &::after {
+            content: '';
+            visibility: visible;
+            width: 100px;
+            height: 200px;
+            filter: blur(60px);
+            background: #D1DEE4;
+            display: block !important;
+            position: absolute;
+            top: 0;
+            right: 60px;
+            transform: translate(50%, -50%);
+            z-index: -1;
+
+            @include media-lg {
+                right: 0;
+            }
+        }
+    
+        .feature-card-details {
+            margin-bottom: 30px;
+
+            @include media-md {
+                margin-bottom: 0;
+            }
+
+            .feature-card-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background-color: $color-grey-light;
+                color: $color-black;
+                margin-bottom: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 27px;
+            }
+            .feature-card-title {
+                margin-bottom: 24px;
+            }
+            .feature-card-desc {
+    
+            }
+        }
+    
+        .feature-card-img-wrap {
+            margin: 0;
+            order: 1;
+            
+            @include media-sm {
+                order: 0;
+            }
+
+            .card-img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    // Call To Action
+    .cta-card {
+        border-radius: $border-radius;
+        color: $color-white;
+        position: relative;
+        overflow: hidden;
+        padding: 30px 20px;
+
+        @include media-sm {
+            padding: 100px;
+        }
+    
+        &::before {
+            content: '';
+            background-image: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            @include media-sm {
+                background-image: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+            }
+        }
+    
+        .cta-card-details {
+            position: relative;
+            z-index: 1;
+    
+            .subtitle {
+                color: $color-yellow;
+                margin-bottom: 24px;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+        
+            .title {
+                color: $color-white;
+                margin-bottom: 24px;
+            }
+        
+            .desc { 
+                margin-bottom: 24px;
+            }
+        }
+    }
+}

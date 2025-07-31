@@ -1,0 +1,38 @@
+@use "../theme/branding.scss" as *;
+@use "../theme/mixins.scss" as *;
+
+// Contact Page
+.contact-page {
+    padding-top: 40px;
+
+    .fold-default {
+    .wrapper {
+        .contact-card {
+          background-color: $color-grey-light;
+          border-radius: $border-radius;
+          display: flex;
+          padding: 30px 20px;
+          flex-direction: column;
+
+          @include media-md {
+            padding: 120px 96px;
+            flex-direction: row;
+          }
+  
+          .content-wrap {
+            margin-right: auto;
+  
+            h1 {
+              margin-bottom: 32px;
+            }
+  
+            p {
+              margin-bottom: 14px;
+            }
+  
+            strong { color: $color-black; }
+          }
+        }
+      }
+    }
+  }

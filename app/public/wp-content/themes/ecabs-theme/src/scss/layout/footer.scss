@@ -1,0 +1,83 @@
+@use "../theme/branding.scss" as *;
+@use "../theme/mixins.scss" as *;
+
+
+// Footer
+footer.main-footer {
+    padding-top: 50px;
+    .footer-wrap {
+      width: 100%;
+      max-width: 1320px;
+      padding: 0 50px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      .logo-wrap {
+        width: 118px;
+  
+        svg {
+            width: 100%;
+            width: 118px;
+            fill: $color-black;
+            transition: fill 0.3s ease;
+        }
+      }
+  
+      .footer-nav {
+        margin: 40px 0 30px;
+        width: 100%;
+
+        @include media-sm {
+          width: auto;
+          margin: 0 100px 0 auto;
+        }
+  
+        .footer-title {
+          color: $color-black;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+  
+        .footer-menu {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          list-style: none;
+          padding: 0;
+          font-size: 15px;
+          @include media-sm {
+            margin-right: 100px;
+          }
+
+          .menu-item {
+              color: $color-grey;
+              transition: color 0.3s ease;
+          }
+          
+        }
+      }
+  
+      .copyright {
+        flex-basis: 100%;
+        border-top: 1px solid $color-border;
+        padding: 20px 0 50px;
+        position: relative;
+        margin-top: 50px;
+  
+        .button-default.scroll-top {
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform: translate(-10px, -50%);
+
+          @include media-md {
+            transform: translate(100%, -50%);
+          }
+        }
+      }
+    }
+  }
+  

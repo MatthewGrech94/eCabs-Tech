@@ -30,6 +30,10 @@
             }
             .card-header {}
         }
+
+        .card-image-wrap {
+            img { margin: 0 auto; }
+        }
     
         .card-desc-wrap {
             display: flex;

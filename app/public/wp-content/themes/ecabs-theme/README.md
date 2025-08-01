@@ -121,9 +121,23 @@ Store Contact Form 7 submissions in the WordPress admin dashboard.
 
 > 💡 You can install these plugins via **Plugins → Add New** in the WordPress admin panel or download them using the links above.
 
+### 4. **Contact Form 7 Apps**  
+Adds spam prevention and additional features to Contact Form 7, including a **honeypot** field to block bots.  
+🔗 [View on WordPress.org](https://wordpress.org/plugins/contact-form-7-apps/)
+
+> 🛡️ *This plugin is used specifically for its honeypot feature to reduce spam.*
+
 ---
 
-## ⚡ Performance Considerations
+### 5. **Wordfence Security**  
+Comprehensive security plugin offering firewall protection, malware scanning, and login attempt monitoring.  
+🔗 [View on WordPress.org](https://wordpress.org/plugins/wordfence/)
+
+> 🔒 *Used to secure the site from common threats and brute-force login attempts.*
+
+---
+
+## ⚡ Perfornmance and Security Considerations
 
 The theme has been optimized for performance with the following practices:
 
@@ -150,3 +164,6 @@ The theme has been optimized for performance with the following practices:
   - Lazy loading for media  
   - Database cleanup  
   - JavaScript preloading and deferment  
+
+- 🕵️‍♂️ **Google reCAPTCHA** *(Essential for Live Sites)*
+   Integrate Google reCAPTCHA with your contact forms to prevent spam and automated abuse in production environments.

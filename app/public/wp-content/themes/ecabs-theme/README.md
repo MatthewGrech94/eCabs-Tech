@@ -5,9 +5,9 @@ This theme includes the basic building blocks for the eCabs website, such as the
 
 ## 📄 Custom Page Templates
 
-This theme includes two custom page templates for improved content control:
+This theme includes two custom page templates for improved content control, these can be set by changing the template type when creating the page in the WP Admin to:
 
-### 1. **Product Page Template**
+### 1. **Product Template**
 
 - Utilizes **ACF** for dynamically populated product content.
 - Includes a **hardcoded shortcode** for a testimonials carousel (ensure that **eCabs Testimonials** plugin is installed and activated).
@@ -15,7 +15,7 @@ This theme includes two custom page templates for improved content control:
 
 ---
 
-### 2. **Contact Page Template**
+### 2. **Contact Template**
 
 - Page content is editable via the WordPress page editor.
 - The **Contact Form 7 shortcode** is hardcoded into the PHP template to render the contact form.
